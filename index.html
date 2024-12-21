@@ -78,6 +78,7 @@ Just a suggestion!
   const gameOver = document.querySelector("h2");
   const HUMAN = "🧑‍💻";
   const ROBOT = "🤖";
+  const AI = "🧑‍💻🤖"
 
   // Decide who goes first
   if (Math.random() > 0.5) {
@@ -108,6 +109,17 @@ Just a suggestion!
       const box = robotBoxes.shift();
       if (box.querySelector("input")) {
         box.innerHTML = ROBOT;
+        break;
+      }
+    }
+  }
+
+  function runAITurn() {
+    const AIBoxes = shuffle(boxes);
+    while (AIBoxes.length) {
+      const box = robotBoxes.shift();
+      if (box.querySelector("input")) {
+        box.innerHTML = AI;
         break;
       }
     }
